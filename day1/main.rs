@@ -14,3 +14,16 @@ fn main() {
     // let fuel: f32 = convert_mass(mass);
     // println!("{}", fuel);
 }
+
+pub struct Config {
+    pub filename: String,
+}
+impl Config {
+    fn new(args: &[String]) -> Result<Config, &'static str> {
+        if args.len() != 1 {
+            return Err("One argument only");
+        }
+        let filename = args[1].clone();
+        Ok(Config { filename })
+    }
+}
